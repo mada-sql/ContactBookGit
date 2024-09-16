@@ -62,10 +62,9 @@ public class Main {
 
                 case LOOKUP_CONTACT:
                     lookupContact(in, cBook);
-
+                    break;
                 case CHECK_SAME_CONTACTS:
                     checkPhoneNumbers(cBook);
-
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -164,12 +163,15 @@ public class Main {
 
 
     private static void lookupContact(Scanner in, ContactBook cBook) {
-        int contact = in.nextInt(); in.nextLine();
+        int contact = in.nextInt();
+        in.nextLine();
 
-        if (cBook.contactExists(contact)) {
-            System.out.println(cBook.getName());
-        }
-        else System.out.println(PHONE_NOT_EXIST);
+        String name = cBook.getName(contact);
+
+        if (name != null) {
+            System.out.println(name);
+        } else System.out.println(PHONE_NOT_EXIST);
+    }
 
     private static void checkPhoneNumbers(ContactBook cBook) {
         if(cBook.hasPhoneNumbersEquals())
@@ -178,3 +180,4 @@ public class Main {
 
     }
 }
+

@@ -21,6 +21,7 @@ import org.junit.Test;
  * Para poder usar esta classe tem de incluir no seu ambiente de execução a biblioteca JUnit 4.
  * Veja como o pode fazer na primeira aula prática do semestre!
  */
+
 public class Tests {
     /**
      * Use as linhas que se seguem para especificar os testes que vai realizar.

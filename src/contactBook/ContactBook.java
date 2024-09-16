@@ -2,6 +2,8 @@ package contactBook;
 
 import contactBook.Contact;
 
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.function.ToDoubleBiFunction;
 
 public class ContactBook {
@@ -71,7 +73,7 @@ public class ContactBook {
                 found = true;
             else
                 i++;
-        if (found) result = i;
+        if (found) result = i; 
         return result;
     }
 
@@ -101,9 +103,14 @@ public class ContactBook {
         return true;
     }
 
-    public String getName() {
-        //TODO
-        return "name";
+    public String getName(int contact) {
+        Iterator<Contact> it = Arrays.stream(contacts).iterator();
+        while (it.hasNext() || counter != 0){
+            Contact next = it.next();
+            if(next.getPhone() == contact)
+                return next.getName();
+        }
+        return null;
     }
 
     public boolean hasPhoneNumbersEquals() {
