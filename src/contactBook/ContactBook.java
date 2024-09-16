@@ -95,6 +95,7 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+
     public boolean contactExists(int contact) {
         //TODO
         return true;
@@ -104,4 +105,10 @@ public class ContactBook {
         //TODO
         return "name";
     }
+
+    public boolean hasPhoneNumbersEquals() {
+        //TODO
+        return true;
+    }
+
 }
