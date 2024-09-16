@@ -121,9 +121,18 @@ public class ContactBook {
 
     }
 
+    //teste
     public boolean hasPhoneNumbersEquals() {
-        //TODO
-        return true;
+        boolean f = false ;
+
+        for (int i = 0 ; i < counter-1;i++){
+            for(int j = i+1 ;j < counter; j++ ){
+                if(contacts[i].getPhone() == contacts[j].getPhone()){
+                    f = true;
+                }
+            }
+        }
+        return f;
     }
 
 }
