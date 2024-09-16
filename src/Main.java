@@ -166,11 +166,10 @@ public class Main {
         int contact = in.nextInt();
         in.nextLine();
 
-        String name = cBook.getName(contact);
-
-        if (name != null) {
-            System.out.println(name);
+        if (cBook.contactExists(contact)) {
+            System.out.println(cBook.getName(contact));
         } else System.out.println(PHONE_NOT_EXIST);
+
     }
 
     private static void checkPhoneNumbers(ContactBook cBook) {
