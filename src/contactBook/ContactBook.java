@@ -77,6 +77,19 @@ public class ContactBook {
         return result;
     }
 
+    private int searchIndexNum(int num) {
+        int i = 0;
+        int result = -1;
+        boolean found = false;
+        while (i<counter && !found)
+            if (contacts[i].getPhone() == num)
+                found = true;
+            else
+                i++;
+        if (found) result = i;
+        return result;
+    }
+
     private void resize() {
         Contact tmp[] = new Contact[2*contacts.length];
         for (int i=0;i<counter; i++)
@@ -99,18 +112,13 @@ public class ContactBook {
 
 
     public boolean contactExists(int contact) {
-        //TODO
-        return true;
+        return searchIndexNum(contact) >= 0;
     }
 
+
     public String getName(int contact) {
-        Iterator<Contact> it = Arrays.stream(contacts).iterator();
-        while (it.hasNext() || counter != 0){
-            Contact next = it.next();
-            if(next.getPhone() == contact)
-                return next.getName();
-        }
-        return null;
+        return contacts[searchIndexNum(contact)].getName();
+
     }
 
     public boolean hasPhoneNumbersEquals() {
