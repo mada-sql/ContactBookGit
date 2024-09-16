@@ -2,6 +2,8 @@ package contactBook;
 
 import contactBook.Contact;
 
+import java.util.function.ToDoubleBiFunction;
+
 public class ContactBook {
     static final int DEFAULT_SIZE = 100;
 
@@ -93,8 +95,20 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+
+    public boolean contactExists(int contact) {
+        //TODO
+        return true;
+    }
+
+    public String getName() {
+        //TODO
+        return "name";
+    }
+
     public boolean hasPhoneNumbersEquals() {
         //TODO
         return true;
     }
+
 }

@@ -1,6 +1,7 @@
 import contactBook.Contact;
 import contactBook.ContactBook;
 
+import java.awt.image.LookupOp;
 import java.util.Scanner;
 
 
@@ -13,6 +14,7 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
+    public static final String LOOKUP_CONTACT  = "GN";
     public static final String QUIT           = "Q";
     public static final String CHECK_SAME_CONTACTS = "EP";
 
@@ -23,6 +25,7 @@ public class Main {
     public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
+    public static final String PHONE_NOT_EXIST = "Phone number does not exist.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
     public static final String ALL_CONTACTS_ARE_DIFFERENTE = "All contacts have different phone numbers";
@@ -56,8 +59,13 @@ public class Main {
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
+
+                case LOOKUP_CONTACT:
+                    lookupContact(in, cBook);
+
                 case CHECK_SAME_CONTACTS:
                     checkPhoneNumbers(cBook);
+
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -70,7 +78,7 @@ public class Main {
         in.close();
     }
 
-    private static String getCommand(Scanner in) {
+        private static String getCommand(Scanner in) {
         String input;
 
         input = in.nextLine().toUpperCase();
@@ -154,9 +162,19 @@ public class Main {
         else System.out.println(BOOK_EMPTY);
     }
 
+
+    private static void lookupContact(Scanner in, ContactBook cBook) {
+        int contact = in.nextInt(); in.nextLine();
+
+        if (cBook.contactExists(contact)) {
+            System.out.println(cBook.getName());
+        }
+        else System.out.println(PHONE_NOT_EXIST);
+
     private static void checkPhoneNumbers(ContactBook cBook) {
         if(cBook.hasPhoneNumbersEquals())
             System.out.println(THERE_IS_SAME_NUMBERS);
         else System.out.println(ALL_CONTACTS_ARE_DIFFERENTE);
+
     }
 }
