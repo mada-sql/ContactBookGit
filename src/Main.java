@@ -170,7 +170,7 @@ public class Main {
             System.out.println(cBook.getName());
         }
         else System.out.println(PHONE_NOT_EXIST);
-
+    }
     private static void checkPhoneNumbers(ContactBook cBook) {
         if(cBook.hasPhoneNumbersEquals())
             System.out.println(THERE_IS_SAME_NUMBERS);
