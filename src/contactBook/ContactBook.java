@@ -113,6 +113,7 @@ public class ContactBook {
         return null;
     }
 
+    //teste
     public boolean hasPhoneNumbersEquals() {
         boolean f = false ;
 
